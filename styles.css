@@ -1,0 +1,52 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.player, .opponent {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 250px;
+    border: 2px solid black;
+}
+
+.player-score, .opponent-score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pfp {
+    width: 75px;
+    height: 100px;
+    border: 2px solid black;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    display: flex;
+    gap: 20px;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, max-content);
+    grid-template-rows: repeat(3, max-content);
+}
+
+.game-grid {
+    width: 150px;
+    height: 150px;
+    border: 2px solid black;
+}
