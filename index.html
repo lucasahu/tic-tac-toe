@@ -13,9 +13,36 @@
 <body>
   <div class="background">
     <div class="card">
-      <p>PLAYER</p>
-      <p>PICK SIMBOL</p>
-      <p>X / O</p>
+      <div class="users-input">
+        <div class="player-input">
+          <div class="pfp"></div>
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" id="username" placeholder="Enter a username">
+            </div>
+          </form>
+        </div>
+        <div class="opponent-input">
+          <div class="pfp"></div>
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" id="opponentname" placeholder="Enter a username">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="form-check form-switch">
+        <input class="form-check-input check-multiplayer" type="checkbox" id="flexSwitchCheckDefault">
+        <label class="form-check-label" for="flexSwitchCheckDefault">Multiplayer mode</label>
+      </div>
+      <p class="selection-text">
+        Pick a your symbol
+      </p>
+      <div class="selection-buttons">
+        <button class="selection-x">X</button>
+        <button class="selection-o">O</button>
+      </div>
+      <button class="start-game-btn btn btn-outline-success">Start Game</button>
     </div>
   </div>
   <div class="main">
@@ -80,7 +107,7 @@
         </div>
       </div>
     </div>
-    <button class="play-btn">PLAY</button>
+    <button class="play-btn btn btn-outline-success">PLAY</button>
   </div>
 </body>
 </html>

@@ -16,15 +16,36 @@ html, body {
 }
 
 .card {
+    display: flex;
     visibility: hidden;
     background-color: white;
-    width: 20vw;
-    height: 20vw;
+    width: 30vw;
+    height: 40vw;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
     z-index: 11;
+}
+
+.users-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-input, .opponent-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.selection-x, .selection-o {
+    width: 100px;
+    height: 100px;
+    font-size: 60px;
 }
 
 .game-grid {
