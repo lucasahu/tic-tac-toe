@@ -24,7 +24,7 @@ const getInput = (function(){
 
     selectionX.addEventListener('click', getInputSelection);
     selectionO.addEventListener('click', getInputSelection);
-    startGameBtn.addEventListener('click', getInputNames);
+    startGameBtn.addEventListener('click', () => getInputNames());
 
     let newPlayerName;
     let newOpponentName;
@@ -42,21 +42,62 @@ const getInput = (function(){
     }
 
     function getInputNames() {
-        console.log(userNameInput.value);
         if (userNameInput == '') {
             newPlayerName = 'Player';
         } else {
-            newPlayerName = userNameInput;
+            newPlayerName = userNameInput.value;
         }
-        console.log(newPlayerName);
+
         if (opponentNameInput == '') {
             newOpponentName = 'Bot';
         } else {
-            newOpponentName = opponentNameInput;
+            newOpponentSymbol = opponentNameInput.value;
         }
+
     }
-    return {newPlayerName, newOpponentName, newPlayerSymbol, newOpponentSymbol}
+
+    function getPlayerName() {
+        return newPlayerName;
+    }
+
+    function getOpponentName() {
+        return newOpponentName;
+    }
+
+    function getPlayerSelection() {
+        return newPlayerSymbol;
+    }
+
+    function getOpponentSelection() {
+        return newOpponentSymbol;
+    }
+
+    return {getPlayerName, getOpponentName, getPlayerSelection, getOpponentSelection};
 })();
+
+//STORES PLAYER INFO INSIDE AN OBJECT
+
+function storeInput() {
+    const playerName = getInput.getPlayerName();
+    const opponentName = getInput.getOpponentName();
+    const playerSelection = getInput.getPlayerSelection();
+    const opponentSelection = getInput.getOpponentSelection();
+
+    let newPlayer;
+    let newOpponent;
+
+    function createPlayer() {
+        newPlayer = new Player(playerName, 0, playerSelection);
+        return newPlayer;
+    }
+
+    function createOpponent() {
+        newOpponent = new Opponent(opponentName, 0, opponentSelection);
+        return newOpponent;
+    }
+
+    return {createPlayer, createOpponent}
+}
 
 //POPS UP AND HIDES FORM
 
