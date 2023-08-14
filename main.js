@@ -57,6 +57,15 @@ const handleInput = (function(){
 const game = (function(){
 
     const startGameBtn = document.querySelector('.start-game-btn');
+    const gameCell0 = document.querySelector('.grid-0');
+    const gameCell1 = document.querySelector('.grid-1');
+    const gameCell2 = document.querySelector('.grid-2');
+    const gameCell3 = document.querySelector('.grid-3');
+    const gameCell4 = document.querySelector('.grid-4');
+    const gameCell5 = document.querySelector('.grid-5');
+    const gameCell6 = document.querySelector('.grid-6');
+    const gameCell7 = document.querySelector('.grid-7');
+    const gameCell8 = document.querySelector('.grid-8');
 
     startGameBtn.addEventListener('click', handleInput.getInputs);
 
@@ -79,7 +88,7 @@ const game = (function(){
 
     startGameBtn.addEventListener('click', objectifyData);
 
-    let gameState = ['O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O'];
+    let gameState = ['', '', '', '', '', '', '', '', ''];
 
     const winCondition = [
         [0, 1, 2],
@@ -105,6 +114,26 @@ const game = (function(){
     }
 
     startGameBtn.addEventListener('click', checkWin);
+
+    function playRound() {
+        let gridIndex = Number(this.classList[1].replace(/\D/g, ''))
+        if (gameState[gridIndex] == '') {
+            this.textContent = 'X'
+            gameState.splice(gridIndex, 1, 'X');
+            console.log(gameState)
+        }
+        checkWin();
+    }
+
+    gameCell0.addEventListener('click', playRound);
+    gameCell1.addEventListener('click', playRound);
+    gameCell2.addEventListener('click', playRound);
+    gameCell3.addEventListener('click', playRound);
+    gameCell4.addEventListener('click', playRound);
+    gameCell5.addEventListener('click', playRound);
+    gameCell6.addEventListener('click', playRound);
+    gameCell7.addEventListener('click', playRound);
+    gameCell8.addEventListener('click', playRound);
 
 //EVERY ROUND CHECK FOR WIN CONDITION
     //when clicking on a grid, render the active players symbol
