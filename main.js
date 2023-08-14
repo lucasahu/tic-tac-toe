@@ -53,7 +53,7 @@ const handleInput = (function(){
 })();
 
 
-
+//TAKE INPUT AND START GAME
 const game = (function(){
 
     const startGameBtn = document.querySelector('.start-game-btn');
@@ -79,12 +79,32 @@ const game = (function(){
 
     startGameBtn.addEventListener('click', objectifyData);
 
+    let gameState = ['O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O'];
 
-    let gameState = ["", "", "", "", "", "", "", "", ""];
+    const winCondition = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ]
 
-//TAKE INPUT AND START GAME
-    //take the input and store it
-    //assign a turn to a player with a boolean (active = false or true)
+    function checkWin() {
+        for (let i = 0; i < winCondition.length; i++) {
+            if (gameState[winCondition[i][0]] == 'X' && gameState[winCondition[i][1]] == 'X' && gameState[winCondition[i][2]] == 'X') {
+              console.log(`WINNING COMBINATION: ${winCondition[i]}`)
+            } else if (gameState[winCondition[i][0]] == 'O' && gameState[winCondition[i][1]] == 'O' && gameState[winCondition[i][2]] == 'O') {
+              console.log(`WINNING COMBINATION: ${winCondition[i]}`)
+            } else {
+              console.log('DID NOT WIN')
+            }
+          }
+    }
+
+    startGameBtn.addEventListener('click', checkWin);
 
 //EVERY ROUND CHECK FOR WIN CONDITION
     //when clicking on a grid, render the active players symbol
