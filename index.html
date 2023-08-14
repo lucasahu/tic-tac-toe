@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tic-Tac-Toe</title>
-  <script src="script.js" defer></script>
+  <script src="main.js" defer></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -22,11 +22,11 @@
             </div>
           </form>
         </div>
-        <div class="opponent-input">
+        <div class="enemy-input">
           <div class="pfp"></div>
           <form>
             <div class="mb-3">
-              <input type="text" class="form-control" id="opponentname" placeholder="Enter a username">
+              <input type="text" class="form-control" id="enemyname" placeholder="Enter a username">
             </div>
           </form>
         </div>
@@ -38,9 +38,19 @@
       <p class="selection-text">
         Pick a your symbol
       </p>
-      <div class="selection-buttons">
-        <button class="selection-x">X</button>
-        <button class="selection-o">O</button>
+      <div class="selection-radios">
+        <div class="form-check">
+          <input class="form-check-input selection-x" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            X
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input selection-o" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+          <label class="form-check-label" for="flexRadioDefault1">
+            O
+          </label>
+        </div>
       </div>
       <button class="start-game-btn btn btn-outline-success">Start Game</button>
     </div>
@@ -93,15 +103,15 @@
           <p class="selection-9 selection"></p>
         </div>
       </div>
-      <div class="opponent">
+      <div class="enemy">
         <div class="pfp"></div>
-        <div class="opponent-name">
+        <div class="enemy-name">
           <p>Opponent name</p>
         </div>
-        <div class="opponent-sign">
+        <div class="enemy-sign">
           <h1>O</h1>
         </div>
-        <div class="opponent-score">
+        <div class="enemy-score">
           <p>Your Score is:</p>
           <p>99</p>
         </div>
