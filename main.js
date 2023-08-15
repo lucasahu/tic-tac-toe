@@ -56,7 +56,13 @@ const handleInput = (function(){
 //TAKE INPUT AND START GAME
 const game = (function(){
 
+    const background = document.querySelector('.background');
+    const displayWin = document.querySelector('.display-win');
     const startGameBtn = document.querySelector('.start-game-btn');
+    const playAgainBtn = document.querySelector('.play-again-btn');
+    const restartGameBtn = document.querySelector('.restart-game-btn');
+    const winnerDisplay = document.querySelector('.user-win');
+    const scoreTracker = document.querySelector('.current-score');
     const gameCell0 = document.querySelector('.grid-0');
     const gameCell1 = document.querySelector('.grid-1');
     const gameCell2 = document.querySelector('.grid-2');
@@ -104,23 +110,35 @@ const game = (function(){
     function checkWin() {
         for (let i = 0; i < winCondition.length; i++) {
             if (gameState[winCondition[i][0]] == 'X' && gameState[winCondition[i][1]] == 'X' && gameState[winCondition[i][2]] == 'X') {
-              console.log(`WINNING COMBINATION: ${winCondition[i]}`)
+                showDisplayWin();
+                console.log(`WINNING COMBINATION: ${winCondition[i]}`);
             } else if (gameState[winCondition[i][0]] == 'O' && gameState[winCondition[i][1]] == 'O' && gameState[winCondition[i][2]] == 'O') {
-              console.log(`WINNING COMBINATION: ${winCondition[i]}`)
-            } else {
-              console.log('DID NOT WIN')
+                showDisplayWin();
+                console.log(`WINNING COMBINATION: ${winCondition[i]}`);
             }
           }
     }
 
     startGameBtn.addEventListener('click', checkWin);
 
+    let playerStatus = objectifyData().player.active;
+    let enemyStatus = objectifyData().enemy.active;
+
     function playRound() {
         let gridIndex = Number(this.classList[1].replace(/\D/g, ''))
-        if (gameState[gridIndex] == '') {
-            this.textContent = 'X'
-            gameState.splice(gridIndex, 1, 'X');
-            console.log(gameState)
+
+        if (gameState[gridIndex] == '' && playerStatus == true) {
+            this.textContent = objectifyData().player.symbol;
+            gameState.splice(gridIndex, 1, objectifyData().player.symbol);
+            playerStatus = false;
+            enemyStatus = true;
+        }
+        
+        else if (gameState[gridIndex] == '' && playerStatus == false) {
+            this.textContent = objectifyData().enemy.symbol;
+            gameState.splice(gridIndex, 1, objectifyData().enemy.symbol);
+            playerStatus = true;
+            enemyStatus = false;
         }
         checkWin();
     }
@@ -135,13 +153,48 @@ const game = (function(){
     gameCell7.addEventListener('click', playRound);
     gameCell8.addEventListener('click', playRound);
 
-//EVERY ROUND CHECK FOR WIN CONDITION
+    function showDisplayWin() {
+        background.style.visibility = 'visible'
+        displayWin.style.visibility = 'visible'
+        console.log(objectifyData().player.name, playerStatus);
+        winnerDisplay.textContent = `${playerStatus == false ? objectifyData().player.name : objectifyData().enemy.name} Won`
+    }
+
+    function hideDisplayWin() {
+        background.style.visibility = 'hidden'
+        displayWin.style.visibility = 'hidden' 
+    }
+
+    function newRound() {
+        gameState = ['', '', '', '', '', '', '', '', ''];
+        playerStatus = objectifyData().player.active;
+        enemyStatus = objectifyData().enemy.active;
+        gameCell0.textContent = '';
+        gameCell1.textContent = '';
+        gameCell2.textContent = '';
+        gameCell3.textContent = '';
+        gameCell4.textContent = '';
+        gameCell5.textContent = '';
+        gameCell6.textContent = '';
+        gameCell7.textContent = '';
+        gameCell8.textContent = '';
+
+        hideDisplayWin();
+    }
+
+    playAgainBtn.addEventListener('click', newRound);
+
+    function scoreCounter() {
+        //blabla
+    }
+
+    function restartFullGame() {
+        newRound();
+
+    }
+
     //when clicking on a grid, render the active players symbol
-    //we check for the win condition
+
     //if it is not meet we change active player and keep playing
 
-//UNTIL SOMEONE WINS AND DISPLAY WINNER
-    //when the win condition is meet
-    //display the winner and the game score counter then add 1 to the game score counter
-    //and restart the game
 })();
