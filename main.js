@@ -204,8 +204,8 @@ const game = (function(){
         enemyCardName.textContent = objectifyData().enemy.name;
         playerCardSymbol.textContent = objectifyData().player.symbol;
         enemyCardSymbol.textContent = objectifyData().enemy.symbol;
-        playerCardScore.textContent = playerCount;
-        enemyCardScore.textContent = enemyCount;
+        playerCardScore.textContent = `Score: ${playerCount}`;
+        enemyCardScore.textContent = `Score: ${enemyCount}`;
         playerCard.style.visibility = 'visible';
         enemyCard.style.visibility = 'visible';
     }
@@ -281,3 +281,9 @@ const game = (function(){
 
     newGameBtn.addEventListener('click', startNewGame);
 })();
+
+
+//TO DO
+    //add vs ia mode
+    //add two settings of difficulty for ia
+//

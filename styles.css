@@ -1,9 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&family=Roboto+Condensed:wght@400;700&display=swap');
+
 html, body {
     margin: 0;
     padding: 0;
     height: 100vh;
     width: 100vw;
     overflow: auto;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+img {
+    position: relative;
+    width: 100%;
+}
+
+nav {
+    margin-bottom: 3vh;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.nav-link {
+    margin-top: 0.25rem;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+.title > h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 52px;
+}
+
+.title > p {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
 }
 
 .background {
@@ -16,11 +48,14 @@ html, body {
 }
 
 .card {
+    box-shadow: 2px 2px 15px 10px rgba(0, 0, 0, 0.226);
     display: flex;
     visibility: hidden;
     background-color: white;
-    width: 30vw;
-    height: 40vw;
+    justify-content: center;
+    align-items: center;
+    width: 459px;
+    height: 460px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -28,12 +63,54 @@ html, body {
     z-index: 11;
 }
 
+.form-switch > label {
+    font-weight: bold;
+}
+
+.selection-radios {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.selection-text {
+    font-weight: bold;
+    margin: 0;
+    margin-top: 25px;
+}
+
+.x-radio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.o-radio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.x-radio > p, .o-radio > p {
+    margin-right: 25px;
+    margin-bottom: 0px;
+    font-size: 48px;
+    font-weight: bold;
+    padding: 0px 0px;
+}
+
 .display-win {
+    box-shadow: 2px 2px 15px 10px rgba(0, 0, 0, 0.226);
+    border-radius: 5px;
     display: flex;
     visibility: hidden;
     background-color: white;
-    width: 30vw;
-    height: 20vw;
+    width: 450px;
+    height: 370px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -72,35 +149,31 @@ html, body {
     gap: 20px;
 }
 
-.selection-x, .selection-o {
-    width: 100px;
-    height: 100px;
-    font-size: 60px;
-}
-
-.game-grid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.selection {
-    font-size: 150px;
-}
-
 .player, .enemy {
+    border-radius: 5px;
     visibility: hidden;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 150px;
     height: 250px;
     border: 2px solid black;
 }
 
+.player-name, .enemy-name {
+    font-size: 18px;
+}
+
+.player-sign, .enemy-sign {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .player-score, .enemy-score {
+    font-size: 18px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,7 +182,7 @@ html, body {
 
 .pfp {
     width: 75px;
-    height: 100px;
+    height: 75px;
     border: 2px solid black;
 }
 
@@ -131,10 +204,77 @@ html, body {
     display: grid;
     grid-template-columns: repeat(3, max-content);
     grid-template-rows: repeat(3, max-content);
+    margin-bottom: 3vh;
 }
 
 .game-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    font-weight: bold;
     width: 150px;
     height: 150px;
+}
+
+.grid-1 {
     border: 2px solid black;
+}
+
+.grid-0 {
+    border: 2px solid black;
+    border-right: none;
+}
+
+.grid-2 {
+    border: 2px solid black;
+    border-left: none;
+}
+
+.grid-3 {
+    border: 2px solid black;
+    border-top: none;
+    border-right: none;
+}
+
+.grid-4 {
+    border: 2px solid black;
+    border-top: none;
+}
+
+.grid-5 {
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+}
+
+.grid-6 {
+    border: 2px solid black;
+    border-top: none;
+    border-right: none;
+}
+
+.grid-7 {
+    border: 2px solid black;
+    border-top: none;
+}
+
+.grid-8 {
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+}
+
+
+
+.start-new-game-btn:hover {
+    background-color: rgb(128, 0, 0);
+    border-color: rgb(94, 0, 0);
+}
+
+.play-btn {
+    font-family: 'Kanit', sans-serif;
+    font-size: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
 }

@@ -16,70 +16,90 @@
       <p class="user-win">Player Won</p>
       <p class="current-score">Score is 1-0</p>
       <div class="win-buttons-container">
-        <button class="play-again-btn btn btn-outline-success">Play again</button>
-        <button class="start-new-game-btn btn btn-outline-danger">Start New Game</button>
+        <button class="play-again-btn btn btn-success btn-lg">Play again</button>
+        <button class="start-new-game-btn btn btn-danger btn-lg">Start New Game</button>
       </div>
     </div>
     <div class="card">
       <div class="users-input">
         <div class="player-input">
-          <div class="pfp"></div>
+          <div class="pfp">
+            <img src="./img/person_FILL1_wght400_GRAD0_opsz48.svg" alt="player profile picture">
+          </div>
           <form>
             <div class="mb-3">
-              <input type="text" class="form-control" id="username" placeholder="Enter a username">
+              <input type="text" class="form-control" id="username" placeholder="Enter player 1 name">
             </div>
           </form>
         </div>
         <div class="enemy-input">
-          <div class="pfp"></div>
+          <div class="pfp">
+            <img src="./img/person_FILL1_wght400_GRAD0_opsz48.svg" alt="player profile picture">
+          </div>
           <form>
             <div class="mb-3">
-              <input type="text" class="form-control" id="enemyname" placeholder="Enter a username">
+              <input type="text" class="form-control" id="enemyname" placeholder="Enter player 2 name">
             </div>
           </form>
         </div>
       </div>
       <div class="form-check form-switch">
         <input class="form-check-input check-multiplayer" type="checkbox" id="flexSwitchCheckDefault">
-        <label class="form-check-label" for="flexSwitchCheckDefault">Multiplayer mode</label>
+        <label class="form-check-label" for="flexSwitchCheckDefault">Impossible AI Mode</label>
       </div>
       <p class="selection-text">
-        Pick a your symbol
+        Pick your symbol
       </p>
       <div class="selection-radios">
-        <div class="form-check">
+        <div class="form-check x-radio">
+          <p class="label-x">X</p>
           <input class="form-check-input selection-x" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-          <label class="form-check-label" for="flexRadioDefault2">
-            X
-          </label>
         </div>
-        <div class="form-check">
+        <div class="form-check o-radio">
+          <p class="label-o">O</p>
           <input class="form-check-input selection-o" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-          <label class="form-check-label" for="flexRadioDefault1">
-            O
-          </label>
         </div>
       </div>
-      <button class="start-game-btn btn btn-outline-success">Start Game</button>
+      <button class="start-game-btn btn btn-success">Start Game</button>
     </div>
   </div>
   <div class="main">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">lucasahu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/lucasahu">GitHub</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/lucasahudev">Twitter</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="title">
       <h1>Tic Tac Toe</h1>
       <p>Do you have what it takes?</p>
     </div>
     <div class="content">
       <div class="player">
-        <div class="pfp"></div>
+        <div class="pfp pfp-player">
+          <img src="./img/person_FILL1_wght400_GRAD0_opsz48.svg" alt="player profile picture">
+        </div>
         <div class="player-name">
           <p>Player name</p>
-        </div>
-        <div class="player-sign">
-          <h1>X</h1>
         </div>
         <div class="player-score">
           <p>Your Score is:</p>
           <p>99</p>
+        </div>
+        <div class="player-sign">
+          <h1>X</h1>
         </div>
       </div>
       <div class="game">
@@ -103,20 +123,22 @@
         </div>
       </div>
       <div class="enemy">
-        <div class="pfp"></div>
+        <div class="pfp pfp-enemy">
+          <img src="./img/person_FILL1_wght400_GRAD0_opsz48.svg" alt="player profile picture">
+        </div>
         <div class="enemy-name">
           <p>Opponent name</p>
-        </div>
-        <div class="enemy-sign">
-          <h1>O</h1>
         </div>
         <div class="enemy-score">
           <p>Your Score is:</p>
           <p>99</p>
         </div>
+        <div class="enemy-sign">
+          <h1>O</h1>
+        </div>
       </div>
     </div>
-    <button class="play-btn btn btn-outline-success">PLAY</button>
+    <button class="play-btn btn btn-success btn-lg">Play</button>
   </div>
 </body>
 </html>
