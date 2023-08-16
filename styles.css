@@ -89,6 +89,7 @@ html, body {
 }
 
 .player, .enemy {
+    visibility: hidden;
     padding: 10px;
     display: flex;
     flex-direction: column;
